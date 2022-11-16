@@ -33,7 +33,10 @@ def englishtofrench(englishtext=None):
     input_type = type(englishtext)
     type_string = type("String")
 
-    if input_type == type_string:
+    if englishtext == "":
+        return "Please enter a text."
+
+    elif input_type == type_string:
         translation = language_translator.translate(
             text=[englishtext],
             model_id='en-fr').get_result()
@@ -42,6 +45,7 @@ def englishtofrench(englishtext=None):
         frenchtext = frenchtext['translations'][0]['translation']
 
         return frenchtext
+
     else:
         return "a string is needed as input."
 
@@ -52,7 +56,10 @@ def frenchtoenglish(frenchtext=None):
     input_type = type(frenchtext)
     type_string = type("String")
 
-    if input_type == type_string:
+    if frenchtext == "":
+        return "Please enter a text."
+
+    elif input_type == type_string:
         translation = language_translator.translate(
             text=[frenchtext],
             model_id='fr-en').get_result()
@@ -61,6 +68,7 @@ def frenchtoenglish(frenchtext=None):
         englishtext = englishtext['translations'][0]['translation']
 
         return englishtext
+
     else:
         return "a string is needed as input."
 
