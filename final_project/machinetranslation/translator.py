@@ -30,7 +30,10 @@ print(json.dumps(languages, indent=2))
 # function translation en-fr
 def englishtofrench(englishtext=None):
 
-    if englishtext is not None:
+    input_type = type(englishtext)
+    type_string = type("String")
+
+    if input_type == type_string:
         translation = language_translator.translate(
             text=[englishtext],
             model_id='en-fr').get_result()
@@ -40,13 +43,16 @@ def englishtofrench(englishtext=None):
 
         return frenchtext
     else:
-        return "an english text is needed as input."
+        return "a string is needed as input."
 
 
 # function translation fr-en
 def frenchtoenglish(frenchtext=None):
 
-    if frenchtext is not None:
+    input_type = type(frenchtext)
+    type_string = type("String")
+
+    if input_type == type_string:
         translation = language_translator.translate(
             text=[frenchtext],
             model_id='fr-en').get_result()
@@ -56,7 +62,7 @@ def frenchtoenglish(frenchtext=None):
 
         return englishtext
     else:
-        return "an french text is needed as input."
+        return "a string is needed as input."
 
 
 if __name__ == '__main__':
